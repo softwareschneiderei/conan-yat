@@ -36,6 +36,7 @@ class YatConan(ConanFile):
     default_options = "shared=False"
     generators = "cmake"
     exports_sources = "cmake_fixes.patch"
+    no_copy_source = True
 
     def source(self):
         tag = "svn://svn.code.sf.net/p/tango-cs/code/share/yat/tags/YAT-1.11.1/"
@@ -43,6 +44,7 @@ class YatConan(ConanFile):
         svn.checkout(tag)
 
     def build(self):
+        self.output.info("Copy source from {0} to {1}".format(self.source_folder, self.build_folder))
         copytree(self.source_folder, self.build_folder,
                  ignore=shutil.ignore_patterns(".svn", ".kdev4", "msvc", "macosx"))
 
@@ -58,5 +60,5 @@ class YatConan(ConanFile):
         cmake.install()
 
     def package_info(self):
-        self.cpp_info.libs = ["libyat"]
+        self.cpp_info.libs = ["yat"]
 
