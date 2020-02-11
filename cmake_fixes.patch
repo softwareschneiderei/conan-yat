@@ -1,0 +1,33 @@
+Index: CMakeLists.txt
+===================================================================
+--- CMakeLists.txt	(revision 31344)
++++ CMakeLists.txt	(working copy)
+@@ -2,7 +2,7 @@
+ cmake_minimum_required (VERSION 2.6)
+ 
+ set(CMAKE_VERBOSE_MAKEFILE TRUE)
+-set(VERSION "1.7.18")
++set(VERSION "1.11.1")
+ 
+ # check for 64 bit
+ if (CMAKE_SIZEOF_VOID_P EQUAL 8)
+Index: src/CMakeLists.txt
+===================================================================
+--- src/CMakeLists.txt	(revision 31344)
++++ src/CMakeLists.txt	(working copy)
+@@ -1,5 +1,6 @@
+ set (source_files
+   Exception.cpp
++  Version.cpp
+   bitsstream/BitsStream.cpp
+   bitsstream/Endianness.cpp
+   file/FileName.cpp
+@@ -48,7 +49,7 @@
+   ../include
+ )
+ 
+-add_library (yat SHARED ${source_files})
++add_library (yat ${source_files})
+ 
+ if (WIN32)
+ 	target_link_libraries(yat ws2_32.lib shell32.lib)
