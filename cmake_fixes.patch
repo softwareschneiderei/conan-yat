@@ -2,15 +2,18 @@ Index: CMakeLists.txt
 ===================================================================
 --- CMakeLists.txt	(revision 31344)
 +++ CMakeLists.txt	(working copy)
-@@ -2,7 +2,7 @@
+@@ -2,8 +2,10 @@
  cmake_minimum_required (VERSION 2.6)
  
  set(CMAKE_VERBOSE_MAKEFILE TRUE)
 -set(VERSION "1.7.18")
 +set(VERSION "1.11.1")
  
++add_definitions(-DYAT_PROJECT_VERSION=${VERSION})
++
  # check for 64 bit
  if (CMAKE_SIZEOF_VOID_P EQUAL 8)
+   set(LIB_INSTALL_DIR "lib64")
 Index: src/CMakeLists.txt
 ===================================================================
 --- src/CMakeLists.txt	(revision 31344)
