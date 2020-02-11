@@ -28,8 +28,8 @@ class YatConan(ConanFile):
     version = "1.11.1"
     license = "GPL-2"
     author = "marius.elvert@softwareschneiderei.de"
-    url = ""
-    description = ""
+    url = "https://github.com/softwareschneiderei/conan-yat"
+    description = "YAT is a general purpose C++ library closely associated with the tango control system"
     topics = ("utility", "control-system",)
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
